@@ -16,7 +16,7 @@ http://charlespockert.github.io/aurelia-bs-grid-demo/
 1. Install the plugin into your project using jspm
 
   ```
-  jspm install github:charlespockert/aurelia-bs-grid
+  jspm install github:micro-jumbo/aurelia-bs-grid
   ```
 2. In order to import the plugin you need to be [manually bootstrapping Aurelia](http://aurelia.io/docs#startup-and-configuration).
 
@@ -33,7 +33,7 @@ http://charlespockert.github.io/aurelia-bs-grid-demo/
       .standardConfiguration()
       .developmentLogging()
       // Install the plugin
-      .plugin('charlespockert/aurelia-bs-grid');
+      .plugin('micro-jumbo/aurelia-bs-grid');
     aurelia.start().then(a => a.setRoot());
   }
   ```
