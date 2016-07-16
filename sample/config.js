@@ -31,6 +31,7 @@ System.config({
     "aurelia-binding": "github:aurelia/binding@0.11.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.19.0",
     "aurelia-framework": "github:aurelia/framework@0.18.0",
+    "aurelia-http-client": "github:aurelia/http-client@0.13.0",
     "aurelia-loader": "github:aurelia/loader@0.11.0",
     "aurelia-logging": "github:aurelia/logging@0.9.0",
     "aurelia-metadata": "github:aurelia/metadata@0.10.0",
@@ -39,17 +40,14 @@ System.config({
     "aurelia-templating": "github:aurelia/templating@0.17.0",
     "babel": "npm:babel-core@5.8.33",
     "babel-runtime": "npm:babel-runtime@5.8.29",
+    "bootstrap": "github:twbs/bootstrap@3.3.5",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.19",
-    "traceur": "github:jmcriffey/bower-traceur@0.0.91",
-    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.91",
-
-    "aurelia-http-client": "github:aurelia/http-client@0.13.0",
-    "bootstrap": "github:twbs/bootstrap@3.3.5",
     "font-awesome": "npm:font-awesome@4.4.0",
     "systemjs/plugin-css": "github:systemjs/plugin-css@0.1.19",
+    "traceur": "github:jmcriffey/bower-traceur@0.0.91",
+    "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.91",
     "twbs/bootstrap": "github:twbs/bootstrap@3.3.5",
-
     "github:aurelia/binding@0.11.0": {
       "aurelia-metadata": "github:aurelia/metadata@0.10.0",
       "aurelia-pal": "github:aurelia/pal@0.3.0",
@@ -80,9 +78,6 @@ System.config({
     },
     "github:aurelia/event-aggregator@0.10.0": {
       "aurelia-logging": "github:aurelia/logging@0.9.0"
-    },
-    "github:aurelia/fetch-client@0.4.0": {
-      "core-js": "npm:core-js@1.2.6"
     },
     "github:aurelia/framework@0.18.0": {
       "aurelia-binding": "github:aurelia/binding@0.11.0",
@@ -181,6 +176,9 @@ System.config({
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
+    "github:jspm/nodelibs-path@0.1.0": {
+      "path-browserify": "npm:path-browserify@0.0.0"
+    },
     "github:jspm/nodelibs-process@0.1.2": {
       "process": "npm:process@0.11.2"
     },
@@ -207,6 +205,9 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:path-browserify@0.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"

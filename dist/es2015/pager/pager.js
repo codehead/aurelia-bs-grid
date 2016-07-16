@@ -1,13 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Pager = undefined;
-
 var _dec, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4;
-
-var _aureliaFramework = require('aurelia-framework');
 
 function _initDefineProp(target, property, descriptor, context) {
 	if (!descriptor) return;
@@ -18,8 +9,6 @@ function _initDefineProp(target, property, descriptor, context) {
 		value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
 	});
 }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
 	var desc = {};
@@ -54,10 +43,10 @@ function _initializerWarningHelper(descriptor, context) {
 	throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var Pager = exports.Pager = (_dec = (0, _aureliaFramework.customElement)('pager'), _dec(_class = (_class2 = function () {
-	function Pager() {
-		_classCallCheck(this, Pager);
+import { bindable, customElement } from 'aurelia-framework';
 
+export let Pager = (_dec = customElement('pager'), _dec(_class = (_class2 = class Pager {
+	constructor() {
 		_initDefineProp(this, 'onPageChanged', _descriptor, this);
 
 		_initDefineProp(this, 'numToShow', _descriptor2, this);
@@ -74,7 +63,7 @@ var Pager = exports.Pager = (_dec = (0, _aureliaFramework.customElement)('pager'
 		this.pages = [];
 	}
 
-	Pager.prototype.changePage = function changePage(page) {
+	changePage(page) {
 
 		var oldPage = this.page;
 
@@ -83,24 +72,24 @@ var Pager = exports.Pager = (_dec = (0, _aureliaFramework.customElement)('pager'
 		if (oldPage !== this.page) {
 			this.onPageChanged(this.page);
 		}
-	};
+	}
 
-	Pager.prototype.update = function update(page, pagesize, totalItems) {
+	update(page, pagesize, totalItems) {
 		this.page = page;
 		this.totalItems = totalItems;
 		this.pageSize = pagesize;
 
 		this.createPages();
-	};
+	}
 
-	Pager.prototype.cap = function cap(page) {
+	cap(page) {
 		if (page < 1) return 1;
 		if (page > this.pageCount) return this.pageCount;
 
 		return page;
-	};
+	}
 
-	Pager.prototype.createPages = function createPages() {
+	createPages() {
 		this.pageCount = Math.ceil(this.totalItems / this.pageSize);
 
 		var numToRender = this.pageCount < this.numToShow ? this.pageCount : this.numToShow;
@@ -129,54 +118,53 @@ var Pager = exports.Pager = (_dec = (0, _aureliaFramework.customElement)('pager'
 		this.pages = pages;
 
 		this.updateButtons();
-	};
+	}
 
-	Pager.prototype.updateButtons = function updateButtons() {
+	updateButtons() {
 		this.nextDisabled = this.page === this.pageCount;
 		this.prevDisabled = this.page === 1;
-	};
+	}
 
-	Pager.prototype.next = function next() {
+	next() {
 		this.changePage(this.page + 1);
-	};
+	}
 
-	Pager.prototype.nextJump = function nextJump() {
+	nextJump() {
 		this.changePage(this.page + this.numToShow);
-	};
+	}
 
-	Pager.prototype.prev = function prev() {
+	prev() {
 		this.changePage(this.page - 1);
-	};
+	}
 
-	Pager.prototype.prevJump = function prevJump() {
+	prevJump() {
 		this.changePage(this.page - this.numToShow);
-	};
+	}
 
-	Pager.prototype.first = function first() {
+	first() {
 		this.changePage(1);
-	};
+	}
 
-	Pager.prototype.last = function last() {
+	last() {
 		this.changePage(this.pageCount);
-	};
+	}
 
-	return Pager;
-}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onPageChanged', [_aureliaFramework.bindable], {
+}, (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'onPageChanged', [bindable], {
 	enumerable: true,
 	initializer: null
-}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'numToShow', [_aureliaFramework.bindable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'numToShow', [bindable], {
 	enumerable: true,
-	initializer: function initializer() {
+	initializer: function () {
 		return 5;
 	}
-}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'showFirstLastButtons', [_aureliaFramework.bindable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'showFirstLastButtons', [bindable], {
 	enumerable: true,
-	initializer: function initializer() {
+	initializer: function () {
 		return true;
 	}
-}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'showJumpButtons', [_aureliaFramework.bindable], {
+}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'showJumpButtons', [bindable], {
 	enumerable: true,
-	initializer: function initializer() {
+	initializer: function () {
 		return true;
 	}
 })), _class2)) || _class);

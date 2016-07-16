@@ -1,13 +1,58 @@
-System.register(['aurelia-framework', './grid-column'], function (_export) {
-	'use strict';
+'use strict';
 
-	var bindable, inject, BindingEngine, customElement, processContent, TargetInstruction, ViewCompiler, ViewSlot, ViewResources, Container, GridColumn, Grid;
+System.register(['aurelia-framework', './grid-column'], function (_export, _context) {
+	"use strict";
 
-	var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
+	var bindable, inject, BindingEngine, customElement, processContent, TargetInstruction, GridColumn, ViewCompiler, ViewSlot, ViewResources, Container, _dec, _dec2, _dec3, _class, _desc, _value, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24, _descriptor25, _descriptor26, Grid;
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	function _initDefineProp(target, property, descriptor, context) {
+		if (!descriptor) return;
+		Object.defineProperty(target, property, {
+			enumerable: descriptor.enumerable,
+			configurable: descriptor.configurable,
+			writable: descriptor.writable,
+			value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+		});
+	}
 
-	function _defineDecoratedPropertyDescriptor(target, key, descriptors) { var _descriptor = descriptors[key]; if (!_descriptor) return; var descriptor = {}; for (var _key in _descriptor) descriptor[_key] = _descriptor[_key]; descriptor.value = descriptor.initializer ? descriptor.initializer.call(target) : undefined; Object.defineProperty(target, key, descriptor); }
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+		var desc = {};
+		Object['ke' + 'ys'](descriptor).forEach(function (key) {
+			desc[key] = descriptor[key];
+		});
+		desc.enumerable = !!desc.enumerable;
+		desc.configurable = !!desc.configurable;
+
+		if ('value' in desc || desc.initializer) {
+			desc.writable = true;
+		}
+
+		desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+			return decorator(target, property, desc) || desc;
+		}, desc);
+
+		if (context && desc.initializer !== void 0) {
+			desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+			desc.initializer = undefined;
+		}
+
+		if (desc.initializer === void 0) {
+			Object['define' + 'Property'](target, property, desc);
+			desc = null;
+		}
+
+		return desc;
+	}
+
+	function _initializerWarningHelper(descriptor, context) {
+		throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
+	}
 
 	function processUserTemplate(element) {
 
@@ -52,259 +97,80 @@ System.register(['aurelia-framework', './grid-column'], function (_export) {
 			GridColumn = _gridColumn.GridColumn;
 		}],
 		execute: function () {
-			Grid = (function () {
-				var _instanceInitializers = {};
-				var _instanceInitializers = {};
+			_export('Grid', Grid = (_dec = customElement('grid'), _dec2 = processContent(function (viewCompiler, viewResources, element, instruction) {
+				var result = processUserTemplate(element);
+				instruction.gridColumns = result.columns;
+				instruction.rowAttrs = result.rowAttrs;
 
-				_createDecoratedClass(Grid, [{
-					key: 'gridHeight',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return 0;
-					},
-					enumerable: true
-				}, {
-					key: 'initialLoad',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return false;
-					},
-					enumerable: true
-				}, {
-					key: 'showColumnFilters',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return false;
-					},
-					enumerable: true
-				}, {
-					key: 'serverFiltering',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return false;
-					},
-					enumerable: true
-				}, {
-					key: 'filterDebounce',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return 500;
-					},
-					enumerable: true
-				}, {
-					key: 'serverPaging',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return false;
-					},
-					enumerable: true
-				}, {
-					key: 'pageable',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'pageSize',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return 10;
-					},
-					enumerable: true
-				}, {
-					key: 'page',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return 1;
-					},
-					enumerable: true
-				}, {
-					key: 'pagerSize',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return 10;
-					},
-					enumerable: true
-				}, {
-					key: 'showPageSizeBox',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'showPagingSummary',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'showFirstLastButtons',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'showJumpButtons',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'pageSizes',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return [10, 25, 50];
-					},
-					enumerable: true
-				}, {
-					key: 'serverSorting',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return false;
-					},
-					enumerable: true
-				}, {
-					key: 'sortable',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'autoGenerateColumns',
-					decorators: [bindable],
-					initializer: null,
-					enumerable: true
-				}, {
-					key: 'showColumnHeaders',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'selectable',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return false;
-					},
-					enumerable: true
-				}, {
-					key: 'selectedItem',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return null;
-					},
-					enumerable: true
-				}, {
-					key: 'noRowsMessage',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return "";
-					},
-					enumerable: true
-				}, {
-					key: 'autoLoad',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return true;
-					},
-					enumerable: true
-				}, {
-					key: 'loadingMessage',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return "Loading...";
-					},
-					enumerable: true
-				}, {
-					key: 'read',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return null;
-					},
-					enumerable: true
-				}, {
-					key: 'onReadError',
-					decorators: [bindable],
-					initializer: function initializer() {
-						return null;
-					},
-					enumerable: true
-				}], null, _instanceInitializers);
-
+				return true;
+			}), _dec3 = inject(Element, ViewCompiler, ViewResources, Container, TargetInstruction, BindingEngine), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = function () {
 				function Grid(element, vc, vr, container, targetInstruction, bindingEngine) {
-					_classCallCheck(this, _Grid);
+					_classCallCheck(this, Grid);
 
-					_defineDecoratedPropertyDescriptor(this, 'gridHeight', _instanceInitializers);
+					_initDefineProp(this, 'gridHeight', _descriptor, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'initialLoad', _instanceInitializers);
+					_initDefineProp(this, 'initialLoad', _descriptor2, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'showColumnFilters', _instanceInitializers);
+					_initDefineProp(this, 'showColumnFilters', _descriptor3, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'serverFiltering', _instanceInitializers);
+					_initDefineProp(this, 'serverFiltering', _descriptor4, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'filterDebounce', _instanceInitializers);
+					_initDefineProp(this, 'filterDebounce', _descriptor5, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'serverPaging', _instanceInitializers);
+					_initDefineProp(this, 'serverPaging', _descriptor6, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'pageable', _instanceInitializers);
+					_initDefineProp(this, 'pageable', _descriptor7, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'pageSize', _instanceInitializers);
+					_initDefineProp(this, 'pageSize', _descriptor8, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'page', _instanceInitializers);
+					_initDefineProp(this, 'page', _descriptor9, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'pagerSize', _instanceInitializers);
+					_initDefineProp(this, 'pagerSize', _descriptor10, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'showPageSizeBox', _instanceInitializers);
+					_initDefineProp(this, 'showPageSizeBox', _descriptor11, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'showPagingSummary', _instanceInitializers);
+					_initDefineProp(this, 'showPagingSummary', _descriptor12, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'showFirstLastButtons', _instanceInitializers);
+					_initDefineProp(this, 'showFirstLastButtons', _descriptor13, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'showJumpButtons', _instanceInitializers);
+					_initDefineProp(this, 'showJumpButtons', _descriptor14, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'pageSizes', _instanceInitializers);
+					_initDefineProp(this, 'pageSizes', _descriptor15, this);
 
 					this.firstVisibleItem = 0;
 					this.lastVisibleItem = 0;
 					this.pageNumber = 1;
 
-					_defineDecoratedPropertyDescriptor(this, 'serverSorting', _instanceInitializers);
+					_initDefineProp(this, 'serverSorting', _descriptor16, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'sortable', _instanceInitializers);
+					_initDefineProp(this, 'sortable', _descriptor17, this);
 
 					this.sortProcessingOrder = [];
 					this.sorting = {};
 					this.Trogdor = true;
 
-					_defineDecoratedPropertyDescriptor(this, 'autoGenerateColumns', _instanceInitializers);
+					_initDefineProp(this, 'autoGenerateColumns', _descriptor18, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'showColumnHeaders', _instanceInitializers);
+					_initDefineProp(this, 'showColumnHeaders', _descriptor19, this);
 
 					this.columnHeaders = [];
 					this.columns = [];
 
-					_defineDecoratedPropertyDescriptor(this, 'selectable', _instanceInitializers);
+					_initDefineProp(this, 'selectable', _descriptor20, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'selectedItem', _instanceInitializers);
+					_initDefineProp(this, 'selectedItem', _descriptor21, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'noRowsMessage', _instanceInitializers);
+					_initDefineProp(this, 'noRowsMessage', _descriptor22, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'autoLoad', _instanceInitializers);
+					_initDefineProp(this, 'autoLoad', _descriptor23, this);
 
 					this.loading = false;
 
-					_defineDecoratedPropertyDescriptor(this, 'loadingMessage', _instanceInitializers);
+					_initDefineProp(this, 'loadingMessage', _descriptor24, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'read', _instanceInitializers);
+					_initDefineProp(this, 'read', _descriptor25, this);
 
-					_defineDecoratedPropertyDescriptor(this, 'onReadError', _instanceInitializers);
+					_initDefineProp(this, 'onReadError', _descriptor26, this);
 
 					this.cache = [];
 					this.data = [];
@@ -323,411 +189,498 @@ System.register(['aurelia-framework', './grid-column'], function (_export) {
 					this.rowAttrs = behavior.rowAttrs;
 				}
 
-				_createDecoratedClass(Grid, [{
-					key: 'attached',
-					value: function attached() {
-						this.gridHeightChanged();
+				Grid.prototype.attached = function attached() {
+					this.gridHeightChanged();
 
-						if (this.autoLoad) this.refresh();
-					}
-				}, {
-					key: 'bind',
-					value: function bind(executionContext) {
-						this.resizeListener = window.addEventListener('resize', this.syncColumnHeadersWithColumns.bind(this));
+					if (this.autoLoad) this.refresh();
+				};
 
-						this["$parent"] = executionContext;
+				Grid.prototype.bind = function bind(executionContext) {
+					this.resizeListener = window.addEventListener('resize', this.syncColumnHeadersWithColumns.bind(this));
 
-						if (this.serverPaging && !this.serverSorting) this.sortable = false;
+					this["$parent"] = executionContext;
 
-						var tbody = this.element.querySelector("table>tbody");
-						this.viewSlot = new ViewSlot(tbody, true, this);
+					if (this.serverPaging && !this.serverSorting) this.sortable = false;
 
-						var row = tbody.querySelector("tr");
+					var tbody = this.element.querySelector("table>tbody");
+					this.viewSlot = new ViewSlot(tbody, true, this);
 
-						this.addRowAttributes(row);
+					var row = tbody.querySelector("tr");
 
-						this.rowTemplate = document.createDocumentFragment();
-						this.rowTemplate.appendChild(row);
+					this.addRowAttributes(row);
 
-						this.buildTemplates();
-					}
-				}, {
-					key: 'addRowAttributes',
-					value: function addRowAttributes(row) {
-						row.setAttribute("repeat.for", "$item of data");
-						row.setAttribute("class", "${ $item === $parent.selectedItem ? 'info' : '' }");
+					this.rowTemplate = document.createDocumentFragment();
+					this.rowTemplate.appendChild(row);
 
-						for (var prop in this.rowAttrs) {
-							if (this.rowAttrs.hasOwnProperty(prop)) {
-								row.setAttribute(prop, this.rowAttrs[prop]);
-							}
+					this.buildTemplates();
+				};
+
+				Grid.prototype.addRowAttributes = function addRowAttributes(row) {
+					row.setAttribute("repeat.for", "$item of data");
+					row.setAttribute("class", "${ $item === $parent.selectedItem ? 'info' : '' }");
+
+					for (var prop in this.rowAttrs) {
+						if (this.rowAttrs.hasOwnProperty(prop)) {
+							row.setAttribute(prop, this.rowAttrs[prop]);
 						}
 					}
-				}, {
-					key: 'buildTemplates',
-					value: function buildTemplates() {
-						var _this = this;
+				};
 
-						var rowTemplate = this.rowTemplate.cloneNode(true);
-						var row = rowTemplate.querySelector("tr");
+				Grid.prototype.buildTemplates = function buildTemplates() {
+					var _this = this;
 
-						this.columns.forEach(function (c) {
-							var td = document.createElement("td");
+					var rowTemplate = this.rowTemplate.cloneNode(true);
+					var row = rowTemplate.querySelector("tr");
 
-							for (var prop in c) {
-								if (c.hasOwnProperty(prop)) {
+					this.columns.forEach(function (c) {
+						var td = document.createElement("td");
 
-									if (prop == "template") td.innerHTML = c[prop];else td.setAttribute(prop, c[prop]);
-								}
+						for (var prop in c) {
+							if (c.hasOwnProperty(prop)) {
+
+								if (prop == "template") td.innerHTML = c[prop];else td.setAttribute(prop, c[prop]);
 							}
-
-							row.appendChild(td);
-						});
-
-						var view = this.viewCompiler.compile(rowTemplate, this.viewResources).create(this.container);
-
-						view.bind(this);
-
-						var removeResponse = this.viewSlot.removeAll();
-
-						if (removeResponse instanceof Promise) {
-							removeResponse.then(function () {
-								return _this.viewSlot.add(view);
-							});
 						}
 
-						this.viewSlot.add(view);
+						row.appendChild(td);
+					});
 
-						this.viewSlot.attached();
+					var view = this.viewCompiler.compile(rowTemplate, this.viewResources).create(this.container);
 
-						this.noRowsMessageChanged();
-					}
-				}, {
-					key: 'unbind',
-					value: function unbind() {
-						this.unbinding = true;
-						window.removeEventListener('resize', this.resizeListener);
-						this.dontWatchForChanges();
-					}
-				}, {
-					key: 'addColumn',
-					value: function addColumn(col) {
-						if (!this.sortable) col.nosort = true;
+					view.bind(this);
 
-						this.columns.push(col);
-					}
-				}, {
-					key: 'pageChanged',
-					value: function pageChanged(page, oldValue) {
+					var removeResponse = this.viewSlot.removeAll();
 
-						if (page === oldValue) return;
-
-						this.pageNumber = Number(page);
-						this.refresh();
-					}
-				}, {
-					key: 'pageSizeChanged',
-					value: function pageSizeChanged(newValue, oldValue) {
-
-						if (newValue === oldValue) return;
-
-						this.updatePager();
-					}
-				}, {
-					key: 'filterSortPage',
-					value: function filterSortPage(data) {
-						var tempData = data;
-
-						if (this.showColumnFilters && !this.serverFiltering) tempData = this.applyFilter(tempData);
-
-						this.count = tempData.length;
-
-						if (this.sortable && !this.serverSorting) tempData = this.applySort(tempData);
-
-						if (this.pageable && !this.serverPaging) tempData = this.applyPage(tempData);
-
-						this.data = tempData;
-
-						this.updatePager();
-
-						this.watchForChanges();
-
-						setTimeout(this.syncColumnHeadersWithColumns.bind(this), 0);
-					}
-				}, {
-					key: 'applyPage',
-					value: function applyPage(data) {
-						var start = (Number(this.pageNumber) - 1) * Number(this.pageSize);
-						data = data.slice(start, start + Number(this.pageSize));
-
-						return data;
-					}
-				}, {
-					key: 'updatePager',
-					value: function updatePager() {
-						if (this.pager) this.pager.update(this.pageNumber, Number(this.pageSize), Number(this.count));
-
-						this.firstVisibleItem = (this.pageNumber - 1) * Number(this.pageSize) + 1;
-						this.lastVisibleItem = Math.min(this.pageNumber * Number(this.pageSize), this.count);
-					}
-				}, {
-					key: 'fieldSorter',
-					value: function fieldSorter(fields) {
-						return function (a, b) {
-							return fields.map(function (o) {
-								var dir = 1;
-								if (o[0] === '-') {
-									dir = -1;
-									o = o.substring(1);
-								}
-								if (a[o] > b[o]) return dir;
-								if (a[o] < b[o]) return -dir;
-								return 0;
-							}).reduce(function firstNonZeroValue(p, n) {
-								return p ? p : n;
-							}, 0);
-						};
-					}
-				}, {
-					key: 'pageSizesChanged',
-					value: function pageSizesChanged() {
-						this.refresh();
-					}
-				}, {
-					key: 'sortChanged',
-					value: function sortChanged(field) {
-						var newSort = undefined;
-
-						switch (this.sorting[field]) {
-							case "asc":
-								newSort = "desc";
-								break;
-							case "desc":
-								newSort = "";
-								break;
-							default:
-								newSort = "asc";
-								break;
-						}
-
-						this.sorting[field] = newSort;
-
-						var pos = this.sortProcessingOrder.indexOf(field);
-
-						if (pos > -1) this.sortProcessingOrder.splice(pos, 1);
-
-						this.sortProcessingOrder.push(field);
-
-						this.refresh();
-					}
-				}, {
-					key: 'applySort',
-					value: function applySort(data) {
-						var fields = [];
-
-						for (var i = 0; i < this.sortProcessingOrder.length; i++) {
-							var sort = this.sortProcessingOrder[i];
-
-							for (var prop in this.sorting) {
-								if (sort == prop && this.sorting[prop] !== "") fields.push(this.sorting[prop] === "asc" ? prop : "-" + prop);
-							}
-						};
-
-						data = data.sort(this.fieldSorter(fields));
-
-						return data;
-					}
-				}, {
-					key: 'applyFilter',
-					value: function applyFilter(data) {
-						var _this2 = this;
-
-						return data.filter(function (row) {
-							var include = true;
-
-							for (var i = _this2.columns.length - 1; i >= 0; i--) {
-								var col = _this2.columns[i];
-
-								if (col.filterValue !== "" && row[col.field].toString().indexOf(col.filterValue) === -1) {
-									include = false;
-								}
-							}
-
-							return include;
+					if (removeResponse instanceof Promise) {
+						removeResponse.then(function () {
+							return _this.viewSlot.add(view);
 						});
 					}
-				}, {
-					key: 'getFilterColumns',
-					value: function getFilterColumns() {
-						var cols = {};
 
-						for (var i = this.columns.length - 1; i >= 0; i--) {
-							var col = this.columns[i];
+					this.viewSlot.add(view);
 
-							if (col.filterValue !== "") cols[col.field] = col.filterValue;
-						}
+					this.viewSlot.attached();
 
-						return cols;
-					}
-				}, {
-					key: 'debounce',
-					value: function debounce(func, wait) {
-						var timeout;
+					this.noRowsMessageChanged();
+				};
 
-						return function () {
+				Grid.prototype.unbind = function unbind() {
+					this.unbinding = true;
+					window.removeEventListener('resize', this.resizeListener);
+					this.dontWatchForChanges();
+				};
 
-							var context = this,
-							    args = arguments;
+				Grid.prototype.addColumn = function addColumn(col) {
+					if (!this.sortable) col.nosort = true;
 
-							var later = function later() {
-								timeout = null;
-								func.apply(context, args);
-							};
+					this.columns.push(col);
+				};
 
-							clearTimeout(timeout);
-							timeout = setTimeout(later, wait);
-						};
-					}
-				}, {
-					key: 'updateFilters',
-					value: function updateFilters() {
+				Grid.prototype.pageChanged = function pageChanged(page, oldValue) {
 
-						if (!this.debouncedUpdateFilters) {
-							this.debouncedUpdateFilters = this.debounce(this.refresh.bind(this), this.filterDebounce || 100);
-						}
+					if (page === oldValue) return;
 
-						this.debouncedUpdateFilters();
-					}
-				}, {
-					key: 'refresh',
-					value: function refresh() {
-						this.dontWatchForChanges();
+					this.pageNumber = Number(page);
+					this.refresh();
+				};
 
-						if (this.serverPaging || this.serverSorting || this.serverFiltering || !this.initialLoad) this.getData();else this.filterSortPage(this.cache);
-					}
-				}, {
-					key: 'getData',
-					value: function getData() {
-						var _this3 = this;
+				Grid.prototype.pageSizeChanged = function pageSizeChanged(newValue, oldValue) {
 
-						if (!this.read) throw new Error("No read method specified for grid");
+					if (newValue === oldValue) return;
 
-						this.initialLoad = true;
+					this.updatePager();
+				};
 
-						this.loading = true;
+				Grid.prototype.filterSortPage = function filterSortPage(data) {
+					var tempData = data;
 
-						this.read({
-							sorting: this.sorting,
-							paging: { page: this.pageNumber, size: Number(this.pageSize) },
-							filtering: this.getFilterColumns()
-						}).then(function (result) {
-							_this3.handleResult(result);
+					if (this.showColumnFilters && !this.serverFiltering) tempData = this.applyFilter(tempData);
 
-							_this3.loading = false;
-						}, function (result) {
-							if (_this3.onReadError) _this3.onReadError(result);
+					this.count = tempData.length;
 
-							_this3.loading = false;
-						});
-					}
-				}, {
-					key: 'handleResult',
-					value: function handleResult(result) {
-						var data = result.data;
+					if (this.sortable && !this.serverSorting) tempData = this.applySort(tempData);
 
-						if (this.pageable && !this.serverPaging && !this.serverSorting && !this.serverFiltering) {
-							this.cache = result.data;
-							this.filterSortPage(this.cache);
-						} else {
-							this.data = result.data;
-							this.filterSortPage(this.data);
-						}
+					if (this.pageable && !this.serverPaging) tempData = this.applyPage(tempData);
 
-						this.count = result.count;
+					this.data = tempData;
 
-						this.updatePager();
-					}
-				}, {
-					key: 'watchForChanges',
-					value: function watchForChanges() {
-						var _this4 = this;
+					this.updatePager();
 
-						this.dontWatchForChanges();
+					this.watchForChanges();
 
-						if (!this.unbinding) this.subscription = this.bindingEngine.collectionObserver(this.cache).subscribe(function (splices) {
-								_this4.refresh();
-							});
-					}
-				}, {
-					key: 'dontWatchForChanges',
-					value: function dontWatchForChanges() {
-						if (this.subscription) this.subscription.dispose();
-					}
-				}, {
-					key: 'select',
-					value: function select(item) {
-						if (this.selectable) this.selectedItem = item;
+					setTimeout(this.syncColumnHeadersWithColumns.bind(this), 0);
+				};
 
-						return true;
-					}
-				}, {
-					key: 'noRowsMessageChanged',
-					value: function noRowsMessageChanged() {
-						this.showNoRowsMessage = this.noRowsMessage !== "";
-					}
-				}, {
-					key: 'gridHeightChanged',
-					value: function gridHeightChanged() {
-						var cont = this.element.querySelector(".grid-content-container");
+				Grid.prototype.applyPage = function applyPage(data) {
+					var start = (Number(this.pageNumber) - 1) * Number(this.pageSize);
+					data = data.slice(start, start + Number(this.pageSize));
 
-						if (this.gridHeight > 0) {
-							cont.setAttribute("style", "height:" + this.gridHeight + "px");
-						} else {
-							cont.removeAttribute("style");
-						}
-					}
-				}, {
-					key: 'syncColumnHeadersWithColumns',
-					value: function syncColumnHeadersWithColumns() {
-						var headers = this.element.querySelectorAll("table>thead>tr:first-child>th");
-						var filters = this.element.querySelectorAll("table>thead>tr:last-child>th");
+					return data;
+				};
 
-						var cells = this.element.querySelectorAll("table>tbody>tr:first-child>td");
+				Grid.prototype.updatePager = function updatePager() {
+					if (this.pager) this.pager.update(this.pageNumber, Number(this.pageSize), Number(this.count));
 
-						for (var i = headers.length - 1; i >= 0; i--) {
-							var header = headers[i];
-							var filter = filters[i];
-							var cell = cells[i];
+					this.firstVisibleItem = (this.pageNumber - 1) * Number(this.pageSize) + 1;
+					this.lastVisibleItem = Math.min(this.pageNumber * Number(this.pageSize), this.count);
+				};
 
-							if (cell && header && filter) {
-								var overflow = this.isBodyOverflowing();
-								var tgtWidth = cell.offsetWidth + (i == headers.length - 1 && overflow ? this.scrollBarWidth : 0);
-
-								header.setAttribute("style", "width: " + tgtWidth + "px");
-								filter.setAttribute("style", "width: " + tgtWidth + "px");
+				Grid.prototype.fieldSorter = function fieldSorter(fields) {
+					return function (a, b) {
+						return fields.map(function (o) {
+							var dir = 1;
+							if (o[0] === '-') {
+								dir = -1;
+								o = o.substring(1);
 							}
-						};
-					}
-				}, {
-					key: 'isBodyOverflowing',
-					value: function isBodyOverflowing() {
-						var body = this.element.querySelector(".grid-content-container");
-						return body.offsetHeight < body.scrollHeight || body.offsetWidth < body.scrollWidth;
-					}
-				}], null, _instanceInitializers);
+							if (a[o] > b[o]) return dir;
+							if (a[o] < b[o]) return -dir;
+							return 0;
+						}).reduce(function firstNonZeroValue(p, n) {
+							return p ? p : n;
+						}, 0);
+					};
+				};
 
-				var _Grid = Grid;
-				Grid = inject(Element, ViewCompiler, ViewResources, Container, TargetInstruction, BindingEngine)(Grid) || Grid;
-				Grid = processContent(function (viewCompiler, viewResources, element, instruction) {
-					var result = processUserTemplate(element);
-					instruction.gridColumns = result.columns;
-					instruction.rowAttrs = result.rowAttrs;
+				Grid.prototype.pageSizesChanged = function pageSizesChanged() {
+					this.refresh();
+				};
+
+				Grid.prototype.sortChanged = function sortChanged(field) {
+					var newSort = undefined;
+
+					switch (this.sorting[field]) {
+						case "asc":
+							newSort = "desc";
+							break;
+						case "desc":
+							newSort = "";
+							break;
+						default:
+							newSort = "asc";
+							break;
+					}
+
+					this.sorting[field] = newSort;
+
+					var pos = this.sortProcessingOrder.indexOf(field);
+
+					if (pos > -1) this.sortProcessingOrder.splice(pos, 1);
+
+					this.sortProcessingOrder.push(field);
+
+					this.refresh();
+				};
+
+				Grid.prototype.applySort = function applySort(data) {
+					var fields = [];
+
+					for (var i = 0; i < this.sortProcessingOrder.length; i++) {
+						var sort = this.sortProcessingOrder[i];
+
+						for (var prop in this.sorting) {
+							if (sort == prop && this.sorting[prop] !== "") fields.push(this.sorting[prop] === "asc" ? prop : "-" + prop);
+						}
+					};
+
+					data = data.sort(this.fieldSorter(fields));
+
+					return data;
+				};
+
+				Grid.prototype.applyFilter = function applyFilter(data) {
+					var _this2 = this;
+
+					return data.filter(function (row) {
+						var include = true;
+
+						for (var i = _this2.columns.length - 1; i >= 0; i--) {
+							var col = _this2.columns[i];
+
+							if (col.filterValue !== "" && row[col.field].toString().indexOf(col.filterValue) === -1) {
+								include = false;
+							}
+						}
+
+						return include;
+					});
+				};
+
+				Grid.prototype.getFilterColumns = function getFilterColumns() {
+					var cols = {};
+
+					for (var i = this.columns.length - 1; i >= 0; i--) {
+						var col = this.columns[i];
+
+						if (col.filterValue !== "") cols[col.field] = col.filterValue;
+					}
+
+					return cols;
+				};
+
+				Grid.prototype.debounce = function debounce(func, wait) {
+					var timeout;
+
+					return function () {
+
+						var context = this,
+						    args = arguments;
+
+						var later = function later() {
+							timeout = null;
+							func.apply(context, args);
+						};
+
+						clearTimeout(timeout);
+						timeout = setTimeout(later, wait);
+					};
+				};
+
+				Grid.prototype.updateFilters = function updateFilters() {
+
+					if (!this.debouncedUpdateFilters) {
+						this.debouncedUpdateFilters = this.debounce(this.refresh.bind(this), this.filterDebounce || 100);
+					}
+
+					this.debouncedUpdateFilters();
+				};
+
+				Grid.prototype.refresh = function refresh() {
+					this.dontWatchForChanges();
+
+					if (this.serverPaging || this.serverSorting || this.serverFiltering || !this.initialLoad) this.getData();else this.filterSortPage(this.cache);
+				};
+
+				Grid.prototype.getData = function getData() {
+					var _this3 = this;
+
+					if (!this.read) throw new Error("No read method specified for grid");
+
+					this.initialLoad = true;
+
+					this.loading = true;
+
+					this.read({
+						sorting: this.sorting,
+						paging: { page: this.pageNumber, size: Number(this.pageSize) },
+						filtering: this.getFilterColumns()
+					}).then(function (result) {
+						_this3.handleResult(result);
+
+						_this3.loading = false;
+					}, function (result) {
+						if (_this3.onReadError) _this3.onReadError(result);
+
+						_this3.loading = false;
+					});
+				};
+
+				Grid.prototype.handleResult = function handleResult(result) {
+					var data = result.data;
+
+					if (this.pageable && !this.serverPaging && !this.serverSorting && !this.serverFiltering) {
+						this.cache = result.data;
+						this.filterSortPage(this.cache);
+					} else {
+						this.data = result.data;
+						this.filterSortPage(this.data);
+					}
+
+					this.count = result.count;
+
+					this.updatePager();
+				};
+
+				Grid.prototype.watchForChanges = function watchForChanges() {
+					var _this4 = this;
+
+					this.dontWatchForChanges();
+
+					if (!this.unbinding) this.subscription = this.bindingEngine.collectionObserver(this.cache).subscribe(function (splices) {
+							_this4.refresh();
+						});
+				};
+
+				Grid.prototype.dontWatchForChanges = function dontWatchForChanges() {
+					if (this.subscription) this.subscription.dispose();
+				};
+
+				Grid.prototype.select = function select(item) {
+					if (this.selectable) this.selectedItem = item;
 
 					return true;
-				})(Grid) || Grid;
-				Grid = customElement('grid')(Grid) || Grid;
+				};
+
+				Grid.prototype.noRowsMessageChanged = function noRowsMessageChanged() {
+					this.showNoRowsMessage = this.noRowsMessage !== "";
+				};
+
+				Grid.prototype.gridHeightChanged = function gridHeightChanged() {
+					var cont = this.element.querySelector(".grid-content-container");
+
+					if (this.gridHeight > 0) {
+						cont.setAttribute("style", "height:" + this.gridHeight + "px");
+					} else {
+						cont.removeAttribute("style");
+					}
+				};
+
+				Grid.prototype.syncColumnHeadersWithColumns = function syncColumnHeadersWithColumns() {
+					var headers = this.element.querySelectorAll("table>thead>tr:first-child>th");
+					var filters = this.element.querySelectorAll("table>thead>tr:last-child>th");
+
+					var cells = this.element.querySelectorAll("table>tbody>tr:first-child>td");
+
+					for (var i = headers.length - 1; i >= 0; i--) {
+						var header = headers[i];
+						var filter = filters[i];
+						var cell = cells[i];
+
+						if (cell && header && filter) {
+							var overflow = this.isBodyOverflowing();
+							var tgtWidth = cell.offsetWidth + (i == headers.length - 1 && overflow ? this.scrollBarWidth : 0);
+
+							header.setAttribute("style", "width: " + tgtWidth + "px");
+							filter.setAttribute("style", "width: " + tgtWidth + "px");
+						}
+					};
+				};
+
+				Grid.prototype.isBodyOverflowing = function isBodyOverflowing() {
+					var body = this.element.querySelector(".grid-content-container");
+					return body.offsetHeight < body.scrollHeight || body.offsetWidth < body.scrollWidth;
+				};
+
 				return Grid;
-			})();
+			}(), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, 'gridHeight', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return 0;
+				}
+			}), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, 'initialLoad', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return false;
+				}
+			}), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, 'showColumnFilters', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return false;
+				}
+			}), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, 'serverFiltering', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return false;
+				}
+			}), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, 'filterDebounce', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return 500;
+				}
+			}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'serverPaging', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return false;
+				}
+			}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'pageable', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, 'pageSize', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return 10;
+				}
+			}), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, 'page', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return 1;
+				}
+			}), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, 'pagerSize', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return 10;
+				}
+			}), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, 'showPageSizeBox', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, 'showPagingSummary', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, 'showFirstLastButtons', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, 'showJumpButtons', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, 'pageSizes', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return [10, 25, 50];
+				}
+			}), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, 'serverSorting', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return false;
+				}
+			}), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, 'sortable', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, 'autoGenerateColumns', [bindable], {
+				enumerable: true,
+				initializer: null
+			}), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, 'showColumnHeaders', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor20 = _applyDecoratedDescriptor(_class2.prototype, 'selectable', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return false;
+				}
+			}), _descriptor21 = _applyDecoratedDescriptor(_class2.prototype, 'selectedItem', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return null;
+				}
+			}), _descriptor22 = _applyDecoratedDescriptor(_class2.prototype, 'noRowsMessage', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return "";
+				}
+			}), _descriptor23 = _applyDecoratedDescriptor(_class2.prototype, 'autoLoad', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return true;
+				}
+			}), _descriptor24 = _applyDecoratedDescriptor(_class2.prototype, 'loadingMessage', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return "Loading...";
+				}
+			}), _descriptor25 = _applyDecoratedDescriptor(_class2.prototype, 'read', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return null;
+				}
+			}), _descriptor26 = _applyDecoratedDescriptor(_class2.prototype, 'onReadError', [bindable], {
+				enumerable: true,
+				initializer: function initializer() {
+					return null;
+				}
+			})), _class2)) || _class) || _class) || _class));
 
 			_export('Grid', Grid);
 		}

@@ -1,14 +1,20 @@
-System.register([], function (_export) {
+"use strict";
+
+System.register([], function (_export, _context) {
 	"use strict";
 
 	var GridColumn;
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
 
 	return {
 		setters: [],
 		execute: function () {
-			GridColumn = function GridColumn(config, template) {
+			_export("GridColumn", GridColumn = function GridColumn(config, template) {
 				_classCallCheck(this, GridColumn);
 
 				this.specialColumns = ["heading", "nosort"];
@@ -28,7 +34,7 @@ System.register([], function (_export) {
 						this[prop] = config[prop];
 					}
 				}
-			};
+			});
 
 			_export("GridColumn", GridColumn);
 		}

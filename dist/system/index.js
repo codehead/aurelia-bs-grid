@@ -1,14 +1,16 @@
-System.register([], function (_export) {
-	'use strict';
+'use strict';
 
-	_export('configure', configure);
-
-	function configure(aurelia) {
-		aurelia.globalResources('./grid/grid');
-	}
+System.register([], function (_export, _context) {
+	"use strict";
 
 	return {
 		setters: [],
-		execute: function () {}
+		execute: function () {
+			function configure(aurelia) {
+				aurelia.globalResources('./grid/grid');
+			}
+
+			_export('configure', configure);
+		}
 	};
 });

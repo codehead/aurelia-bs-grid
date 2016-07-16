@@ -5,9 +5,13 @@ define(["exports"], function (exports) {
 		value: true
 	});
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
 
-	var GridColumn = function GridColumn(config, template) {
+	var GridColumn = exports.GridColumn = function GridColumn(config, template) {
 		_classCallCheck(this, GridColumn);
 
 		this.specialColumns = ["heading", "nosort"];
@@ -28,6 +32,4 @@ define(["exports"], function (exports) {
 			}
 		}
 	};
-
-	exports.GridColumn = GridColumn;
 });

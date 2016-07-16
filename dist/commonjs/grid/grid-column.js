@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var GridColumn = function GridColumn(config, template) {
+var GridColumn = exports.GridColumn = function GridColumn(config, template) {
 	_classCallCheck(this, GridColumn);
 
 	this.specialColumns = ["heading", "nosort"];
@@ -27,5 +27,3 @@ var GridColumn = function GridColumn(config, template) {
 		}
 	}
 };
-
-exports.GridColumn = GridColumn;
