@@ -582,7 +582,7 @@ System.register(['aurelia-framework', './grid-column'], function (_export, _cont
 			}), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'serverPaging', [bindable], {
 				enumerable: true,
 				initializer: function initializer() {
-					return false;
+					return true;
 				}
 			}), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'pageable', [bindable], {
 				enumerable: true,

@@ -520,7 +520,7 @@ export let Grid = (_dec = customElement('grid'), _dec2 = processContent(function
 }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'serverPaging', [bindable], {
 	enumerable: true,
 	initializer: function () {
-		return false;
+		return true;
 	}
 }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'pageable', [bindable], {
 	enumerable: true,

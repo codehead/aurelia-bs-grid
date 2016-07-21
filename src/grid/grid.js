@@ -28,7 +28,7 @@ export class Grid {
 	@bindable filterDebounce = 500;
 
 	// Pagination
-	@bindable serverPaging = false;
+	@bindable serverPaging = true;
 	@bindable pageable = true;
 	@bindable pageSize = 10;
 	@bindable page = 1;

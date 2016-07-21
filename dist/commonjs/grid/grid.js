@@ -541,7 +541,7 @@ var Grid = exports.Grid = (_dec = (0, _aureliaFramework.customElement)('grid'), 
 }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, 'serverPaging', [_aureliaFramework.bindable], {
 	enumerable: true,
 	initializer: function initializer() {
-		return false;
+		return true;
 	}
 }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, 'pageable', [_aureliaFramework.bindable], {
 	enumerable: true,
