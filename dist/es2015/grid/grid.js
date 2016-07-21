@@ -239,9 +239,11 @@ export let Grid = (_dec = customElement('grid'), _dec2 = processContent(function
 	filterSortPage(data) {
 		var tempData = data;
 
-		if (this.showColumnFilters && !this.serverFiltering) tempData = this.applyFilter(tempData);
+		if (this.showColumnFilters && !this.serverFiltering) {
+			this.count = tempData.length;
 
-		this.count = tempData.length;
+			tempData = this.applyFilter(tempData);
+		}
 
 		if (this.sortable && !this.serverSorting) tempData = this.applySort(tempData);
 
@@ -419,6 +421,8 @@ export let Grid = (_dec = customElement('grid'), _dec2 = processContent(function
 	handleResult(result) {
 		var data = result.data;
 
+		this.count = result.count;
+
 		if (this.pageable && !this.serverPaging && !this.serverSorting && !this.serverFiltering) {
 			this.cache = result.data;
 			this.filterSortPage(this.cache);
@@ -426,8 +430,6 @@ export let Grid = (_dec = customElement('grid'), _dec2 = processContent(function
 			this.data = result.data;
 			this.filterSortPage(this.data);
 		}
-
-		this.count = result.count;
 
 		this.updatePager();
 	}

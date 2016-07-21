@@ -247,11 +247,12 @@ export class Grid {
 		// 1. First filter the data down to the set we want, if we are using local data
 		var tempData = data;
 
-		if(this.showColumnFilters && !this.serverFiltering)
-			tempData = this.applyFilter(tempData);
+		if(this.showColumnFilters && !this.serverFiltering) {
+	    // Count the data now before the sort/page
+	    this.count = tempData.length;
 
-		// Count the data now before the sort/page
-		this.count = tempData.length;
+			tempData = this.applyFilter(tempData);
+		}
 
 		// 2. Now sort the data
 		if(this.sortable && !this.serverSorting)
@@ -473,6 +474,8 @@ export class Grid {
 		// TODO: Check valid stuff was returned
 		var data = result.data;
 
+    this.count = result.count;
+
 		// Is the data being paginated on the client side?
 		// TODO: Work out when we should we use the cache... ever? If it's local data
 		if(this.pageable && !this.serverPaging && !this.serverSorting && !this.serverFiltering) {
@@ -483,8 +486,6 @@ export class Grid {
 			this.data = result.data;
 			this.filterSortPage(this.data);
 		}
-
-	    this.count = result.count;
 
 	    // Update the pager - maybe the grid options should contain an update callback instead of reffing the
 	    // pager into the current VM?

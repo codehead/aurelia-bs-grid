@@ -254,9 +254,11 @@ define(['exports', 'aurelia-framework', './grid-column'], function (exports, _au
 		Grid.prototype.filterSortPage = function filterSortPage(data) {
 			var tempData = data;
 
-			if (this.showColumnFilters && !this.serverFiltering) tempData = this.applyFilter(tempData);
+			if (this.showColumnFilters && !this.serverFiltering) {
+				this.count = tempData.length;
 
-			this.count = tempData.length;
+				tempData = this.applyFilter(tempData);
+			}
 
 			if (this.sortable && !this.serverSorting) tempData = this.applySort(tempData);
 
@@ -438,6 +440,8 @@ define(['exports', 'aurelia-framework', './grid-column'], function (exports, _au
 		Grid.prototype.handleResult = function handleResult(result) {
 			var data = result.data;
 
+			this.count = result.count;
+
 			if (this.pageable && !this.serverPaging && !this.serverSorting && !this.serverFiltering) {
 				this.cache = result.data;
 				this.filterSortPage(this.cache);
@@ -445,8 +449,6 @@ define(['exports', 'aurelia-framework', './grid-column'], function (exports, _au
 				this.data = result.data;
 				this.filterSortPage(this.data);
 			}
-
-			this.count = result.count;
 
 			this.updatePager();
 		};
