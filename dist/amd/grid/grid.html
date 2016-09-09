@@ -9,8 +9,8 @@
     <div>
         <div class="grid-container">
             <!-- Header table -->
-            <table class="table table-hover table-striped table-responsive grid-header-table">
-                <thead>
+            <table class="table table-striped table-condensed grid-header-table">
+                <thead class="thead-inverse">
                     <tr role="button" if.bind="showColumnHeaders">
                         <th repeat.for="$column of columns" class="${ $column.class !== '' ? $column.class : '' }">
                             <a if.bind="$column.nosort == false && $parent.sortable" click.trigger="$parent.sortChanged($column.field)">${ $column.heading }</a>
@@ -31,7 +31,7 @@
             </table>
             <!-- Content table -->
             <div class="grid-content-container">
-                <table class="table table-hover table-striped table-responsive selectable" show.bind="!showNoRowsMessage || (showNoRowsMessage && count > 0)">
+                <table class="table table-striped table-condensed grid-header-table selectable" show.bind="!showNoRowsMessage || (showNoRowsMessage && count > 0)">
                     <tbody>
                         <tr role="button" click.delegate="$parent.select($item)">     
                         </tr>
